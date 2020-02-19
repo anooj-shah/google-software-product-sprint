@@ -7,3 +7,30 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#footer {
+   bottom : 2px;  
+   height : 40px;  
+   margin-top : 40px;  
+   text-align: center;  
+   vertical-align: middle; 
+   position:fixed;
+   width:100%;
+}
+
+#projects {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
+#linkedin {
+  height: 30px;
+  width: 30px;
+  align-content: center;
+}
+
+body {
+  background-color:whitesmoke;
+  align-content: center;
+}
