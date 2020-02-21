@@ -5,11 +5,11 @@
 }
 
 h1 {
-	font-size: 50px;
+  font-size: 50px;
 }
 
 h2 {
-	font-size: 36px;
+  font-size: 36px;
 }
 
 p {
@@ -21,20 +21,19 @@ p {
 }
 
 #footer {
-   bottom : 2px;  
-   height : 40px;  
-   margin-top : 40px;  
-   text-align: center;  
-   vertical-align: middle; 
-   position:fixed;
-   width:100%;
+  bottom : 2px;  
+  height : 40px;  
+  margin-top : 40px;  
+  text-align: center;  
+  vertical-align: middle; 
+  position:fixed;
+  width:100%;
 }
 
 #projects {
   margin-left: auto;
   margin-right: auto;
   font-family: 'Caveat';
-
 }
 
 #linkedin {
