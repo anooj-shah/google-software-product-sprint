@@ -4,6 +4,99 @@
   width: 650px;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+p {
+  font-size: 25px;
+}
+
 #greeting-container {
   margin-top: 20px;
+}
+
+#footer {
+  bottom : 2px;  
+  height : 40px;  
+  margin-top : 40px;  
+  text-align: center;  
+  vertical-align: middle; 
+  position:fixed;
+  width:100%;
+}
+
+#projects {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Caveat';
+}
+
+#linkedin {
+  height: 30px;
+  width: 30px;
+  align-content: center;
+}
+
+body {
+  background-color:whitesmoke;
+  align-content: center;
+  font-family: 'Caveat';
+  text-align: center;
+}
+
+#profile {
+  width: 50%;
+  height: auto;
+  border-radius: 25px;
+}
+
+a {
+  color:cadetblue;
+	font-size: 25px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+.interests-image {
+  width: 250px;
+  height: auto;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#music {
+  width: 200px;
+  height: auto;
+}
+
+/* Zoom In #1 */
+.hover01 figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.hover01 figure:hover img {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
