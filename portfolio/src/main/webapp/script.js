@@ -63,7 +63,6 @@ function handleResponse(response) {
 /** Adds greeting to the DOM. */
 function addGreetingToDom(greeting) {
   console.log('Adding greeting to dom: ' + greeting);
-
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
