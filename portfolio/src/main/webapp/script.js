@@ -12,12 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+function getMessages() {
+  fetch('/data').then(response => response.json()).then((messages) => {
+    const messagesElement = document.getElementById('messages-container');
+    console.log(messages);
+    messagesElement.innerHTML = messages[0];
+  });
+}
+
 /**
  * Adds a random greeting to the page.
 */
 function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+  const greetings = ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -26,10 +33,6 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
-
-/**
- * New Section for Greeting - Part 2
- */
 
 /**
  * Fetches greeting from the server and adds it to the DOM.
