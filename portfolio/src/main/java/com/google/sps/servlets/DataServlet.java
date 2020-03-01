@@ -31,13 +31,8 @@ public class DataServlet extends HttpServlet {
     ArrayList<String> messages = new ArrayList<String>();
     messages.add("Hi, my name is Anooj");
     messages.add("Hello");
-    String json = convertToJson(messages);
+    String json = new Gson().toJson(messages);
     response.setContentType("application/json");
     response.getWriter().println(json);
-  }
-
-  private String convertToJson(ArrayList<String> list) {
-    String json = new Gson().toJson(list);
-    return json;
   }
 }
