@@ -58,7 +58,7 @@ public class DataServlet extends HttpServlet {
       Message m = new Message(id, message, timestamp);
       messages.add(m);
     }
-
+ 
     Gson gson = new Gson();
 
     response.setContentType("application/json;");
