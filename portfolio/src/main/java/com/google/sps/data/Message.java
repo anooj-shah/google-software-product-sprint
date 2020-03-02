@@ -12,13 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-function getMessages() {
-  fetch('/data').then(response => response.json()).then((messages) => {
-    const messagesElement = document.getElementById('messages-container');
-    messagesElement.innerHTML = "";
-    console.log(messages);
-    for (i of messages) {
-      messagesElement.innerHTML += "<p>"+i.message+"</p><br>";
-    }
-  });
+package com.google.sps.data;
+
+public final class Message {
+  private final long id;
+  private final String message;
+  private final long timestamp;
+
+  public Message(long id, String message, long timestamp) {
+    this.id = id;
+    this.message = message;
+    this.timestamp = timestamp;
+  }
 }
