@@ -18,7 +18,7 @@ function getMessages() {
     messagesElement.innerHTML = "";
     console.log(messages);
     for (i of messages) {
-      messagesElement.innerHTML += "<p>"+i+"</p><br>";
+      messagesElement.innerHTML += "<p>"+i.message+"</p><br>";
     }
   });
 }
