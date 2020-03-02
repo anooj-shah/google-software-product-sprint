@@ -30,12 +30,6 @@ import java.util.List;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("application/json");
-    response.getWriter().println(json);
-  }
-
-  @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String message = getParameter(request, "text-input", "");
     long timestamp = System.currentTimeMillis();
