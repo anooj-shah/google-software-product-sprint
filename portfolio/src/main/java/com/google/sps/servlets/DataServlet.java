@@ -27,7 +27,7 @@ import java.util.List;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
   private List<String> messages = new ArrayList<String>();
-  
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String json = new Gson().toJson(messages);
