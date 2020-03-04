@@ -49,8 +49,9 @@ public class DataServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String message = (String) entity.getProperty("message");
       long timestamp = (long) entity.getProperty("timestamp");
+      double score = (double) entity.getProperty("score");
 
-      Message m = new Message(id, message, timestamp);
+      Message m = new Message(id, message, timestamp, score);
       messages.add(m);
     }
 
@@ -68,7 +69,7 @@ public class DataServlet extends HttpServlet {
     Document doc = Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();
     Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    float score = sentiment.getScore();
+    double score = sentiment.getScore();
     System.out.println("Score: " + score);
     languageService.close();
 
