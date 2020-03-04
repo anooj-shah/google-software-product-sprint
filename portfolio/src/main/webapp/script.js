@@ -18,7 +18,13 @@ function getMessages() {
     messagesElement.innerHTML = "";
     console.log(messages);
     for (i of messages) {
-      messagesElement.innerHTML += "<p>"+i.message+"</p><br>";
+      messagesElement.appendChild(createListElement(i.message))
     }
   });
+}
+
+function createListElement(message) {
+  const element = document.createElement('li');
+  element.innerText = message;
+  return element;
 }
