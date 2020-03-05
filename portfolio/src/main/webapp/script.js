@@ -6,6 +6,7 @@ function getMessages() {
     for (i of messages) {
       messagesElement.appendChild(createListElement(i.message))
     }
+    // work on displaying the score too
   });
 }
 
