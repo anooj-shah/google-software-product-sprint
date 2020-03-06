@@ -4,7 +4,12 @@ function getMessages() {
     messagesElement.innerHTML = "";
     console.log(messages);
     for (i of messages) {
-      messagesElement.appendChild(createListElement(i.message + " Score: " + i.score));
+      if (i.score == -2) {
+        messagesElement.appendChild(createListElement(i.message + " Score: n/a"));
+      }
+      else {
+        messagesElement.appendChild(createListElement(i.message + " Score: " + i.score));
+      }
     }
   });
 }
