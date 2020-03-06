@@ -49,7 +49,6 @@ public class DataServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String message = (String) entity.getProperty("message");
       long timestamp = (long) entity.getProperty("timestamp");
-<<<<<<< HEAD
       double score;
       if (entity.getProperty("score") == null) {
         score = -2;
@@ -57,14 +56,9 @@ public class DataServlet extends HttpServlet {
       else {
         score = (double) entity.getProperty("score");
       }
-=======
-      double score = (double) entity.getProperty("score");
-
->>>>>>> Fix merge issues
       Message m = new Message(id, message, timestamp, score);
       messages.add(m);
     }
-
     Gson gson = new Gson();
 
     response.setContentType("application/json;");
