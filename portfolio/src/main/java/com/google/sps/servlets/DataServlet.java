@@ -52,8 +52,7 @@ public class DataServlet extends HttpServlet {
       double score;
       if (entity.getProperty("score") == null) {
         score = -2;
-      }
-      else {
+      } else {
         score = (double) entity.getProperty("score");
       }
       Message m = new Message(id, message, timestamp, score);
