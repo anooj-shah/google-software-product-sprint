@@ -69,13 +69,11 @@ public class DataServlet extends HttpServlet {
     LanguageServiceClient languageService = LanguageServiceClient.create();
     Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
     float score = sentiment.getScore();
-    System.out.println("Score: " + score);
     languageService.close();
 
     long timestamp = System.currentTimeMillis();
 
     Entity messageEntity = new Entity("Message");
-    messageEntity.setProperty("score", score);
     messageEntity.setProperty("message", message);
     messageEntity.setProperty("timestamp", timestamp);
 
