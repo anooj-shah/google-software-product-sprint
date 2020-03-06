@@ -76,7 +76,6 @@ public class DataServlet extends HttpServlet {
     long timestamp = System.currentTimeMillis();
 
     Entity messageEntity = new Entity("Message");
-    messageEntity.setProperty("score", score);
     messageEntity.setProperty("message", message);
     messageEntity.setProperty("timestamp", timestamp);
 
