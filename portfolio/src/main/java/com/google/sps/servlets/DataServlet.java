@@ -49,8 +49,13 @@ public class DataServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String message = (String) entity.getProperty("message");
       long timestamp = (long) entity.getProperty("timestamp");
-      double score = (double) entity.getProperty("score");
-
+      double score;
+      if (entity.getProperty("score") == null) {
+        score = -2;
+      }
+      else {
+        score = (double) entity.getProperty("score");
+      }
       Message m = new Message(id, message, timestamp, score);
       messages.add(m);
     }
