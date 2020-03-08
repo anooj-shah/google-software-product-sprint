@@ -39,7 +39,7 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Using 
+    // Using '2' to indicate an invalid sentiment score 
     private static final INVALID_SENTIMENT_SCORE = 2;
     Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
 
