@@ -36,11 +36,10 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
+  // Using '2' to indicate an invalid sentiment score 
+  private static final int INVALID_SENTIMENT_SCORE = 2;
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Using '2' to indicate an invalid sentiment score 
-    private static final INVALID_SENTIMENT_SCORE = 2;
     Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
