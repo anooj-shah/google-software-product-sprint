@@ -1,15 +1,12 @@
 function getMessages() {
+  const INVALID_SENTIMENT_SCORE = 2;
   fetch('/data').then(response => response.json()).then((messages) => {
     const messagesElement = document.getElementById('messages-container');
     messagesElement.innerHTML = "";
     console.log(messages);
     for (i of messages) {
-      if (i.score == -2) {
-        messagesElement.appendChild(createListElement(i.message + " Score: n/a"));
-      }
-      else {
-        messagesElement.appendChild(createListElement(i.message + " Score: " + i.score));
-      }
+      const printableScore = (i.score == INVALID_SENTIMENT_SCORE ? "n/a" : i.score);
+      messagesElement.appendChild(createListElement(i.message + " Score: " + printableScore));
     }
   });
 }
