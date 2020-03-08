@@ -39,6 +39,8 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Using 
+    private static final INVALID_SENTIMENT_SCORE = 2;
     Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -51,7 +53,7 @@ public class DataServlet extends HttpServlet {
       long timestamp = (long) entity.getProperty("timestamp");
       double score;
       if (entity.getProperty("score") == null) {
-        score = -2;
+        score = INVALID_SENTIMENT_SCORE;
       } else {
         score = (double) entity.getProperty("score");
       }
