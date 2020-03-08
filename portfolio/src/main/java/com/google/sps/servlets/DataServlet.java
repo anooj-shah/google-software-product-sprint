@@ -36,7 +36,8 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
+  // Using '2' to indicate an invalid sentiment score 
+  private static final int INVALID_SENTIMENT_SCORE = 2;
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Message").addSort("timestamp", SortDirection.DESCENDING);
@@ -49,8 +50,13 @@ public class DataServlet extends HttpServlet {
       long id = entity.getKey().getId();
       String message = (String) entity.getProperty("message");
       long timestamp = (long) entity.getProperty("timestamp");
-
-      Message m = new Message(id, message, timestamp);
+      double score;
+      if (entity.getProperty("score") == null) {
+        score = INVALID_SENTIMENT_SCORE;
+      } else {
+        score = (double) entity.getProperty("score");
+      }
+      Message m = new Message(id, message, timestamp, score);
       messages.add(m);
     }
 
@@ -68,12 +74,13 @@ public class DataServlet extends HttpServlet {
     Document doc = Document.newBuilder().setContent(message).setType(Document.Type.PLAIN_TEXT).build();
     LanguageServiceClient languageService = LanguageServiceClient.create();
     Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    float score = sentiment.getScore();
+    double score = sentiment.getScore();
     languageService.close();
 
     long timestamp = System.currentTimeMillis();
 
     Entity messageEntity = new Entity("Message");
+    messageEntity.setProperty("score", score);
     messageEntity.setProperty("message", message);
     messageEntity.setProperty("timestamp", timestamp);
 
