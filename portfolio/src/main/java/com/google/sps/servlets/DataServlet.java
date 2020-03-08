@@ -36,6 +36,7 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+    
   // Using '2' to indicate an invalid sentiment score 
   private static final int INVALID_SENTIMENT_SCORE = 2;
   @Override
@@ -59,7 +60,6 @@ public class DataServlet extends HttpServlet {
       Message m = new Message(id, message, timestamp, score);
       messages.add(m);
     }
-
     Gson gson = new Gson();
 
     response.setContentType("application/json;");
